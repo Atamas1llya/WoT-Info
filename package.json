@@ -1,0 +1,15 @@
+{
+  "name": "infowot",
+  "version": "1.0.0",
+  "description": "Information about World of Tanks players.",
+  "main": "server.js",
+  "scripts": {
+    "test": "infowot test",
+    "start": "node server.js"
+  },
+  "author": "Atamas.I.",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
