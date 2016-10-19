@@ -1,104 +1,104 @@
+const appId = '8f5364a34f86dfcb5e74149187e31190';
 
-var myid = "";
-var battles, wins, wins_count, hits_super, maxXp;
-function go() {
-  var nick = document.getElementById('login').value;
-    // =========================================================
-  fetch(`https://api.worldoftanks.ru/wot/account/list/?application_id=8f5364a34f86dfcb5e74149187e31190&language=ru&limit=3&type=exact&search=${nick}`)
-    .then((res) => {
-       return res.json();
-     })
-      .then((json) => {
-          myid = json.data[0].account_id;
+
+const getAccountId = (nickName) => {
+  return new Promise((resolve, reject) => {
+    fetch(`https://api.worldoftanks.ru/wot/account/list/?application_id=${appId}&language=ru&limit=3&type=exact&search=${nickName}`)
+      .then((res) => {
+         return res.json();
+       })
+        .then((json) => {
+            resolve(json.data[0].account_id);
+          })
+        .catch((err) => {
+          $("#login").css({background: "rgba(255, 0, 0, 0.1)"});
+          setTimeout(() => {
+              $("#login").css({background: "none"})
+            }, 1000);
         })
+   })
+}
+
+
+const fetchData = (accId) => {
+  return new Promise((resolve, reject) => {
+    fetch(`https://api.worldoftanks.ru/wot/account/info/?application_id=${appId}&account_id=${accId}&language=ru`)
+       .then((res) => {
+          return res.json();
+        })
+         .then((json) => {
+            resolve(json)
+          })
          .catch((err) => {
             console.log(err);
-          })
-//================================
-        .then(() => {
-        fetch(`https://api.worldoftanks.ru/wot/account/info/?application_id=8f5364a34f86dfcb5e74149187e31190&account_id=${myid}&language=ru`)
-           .then((res) => {
-              return res.json();
-              })
-              .then((json) => {
-                  battles = json.data[myid].statistics.all.battles;
-                  wins_count = json.data[myid].statistics.all.wins;
-                  wins =  (wins_count / battles) * 100;
-                  hits_super = json.data[myid].statistics.all.hits_percents;
-                  maxXp = json.data[myid].statistics.all.max_xp;
-                })
-             .catch((err) => {
-               console.log(err);
-             })
-          })
+         })
+    })
+}
 
-//============================================================================
 
-//============================================================================
-function show() {
-  function stat(){
+const render = (json, accId, nickName) => {
 
-    document.getElementById('nickn').innerHTML = nick;
-    document.getElementById('battles-count').innerHTML = battles;
-    document.getElementById('hitssuper').innerHTML = hits_super+ "%<pre>    </pre>";
-    document.getElementById('wins-count').innerHTML = wins.toFixed(2) + "%";
-    document.getElementById('maxexp').innerHTML = maxXp;
-    if (wins > 64) {
-        $("#wins-count").css({
-       color: "purple",
-      });
-      }
-    else if (wins > 57 && wins < 65) {
-        $("#wins-count").css({
-       color: "deepskyblue",
-      });
-      }
-    else if (wins > 52.4 && wins < 58) {
-        $("#wins-count").css({
-       color: "green"
-      });
-      }
-    else if (wins > 48 && wins < 52.6) {
-        $("#wins-count").css({
-        color: "yellow"
-        });
-        }
-    else if (wins > 46 && wins < 49) {
-        $("#wins-count").css({
-        color: "orange",
-        });
-    }
-    else if (wins > -1 && wins < 47) {
-        $("#wins-count").css({
-        color: "red",
-        });
-      }
+  const {battles, wins, hits_percents, max_xp} =  json.data[accId].statistics.all
+  let wins_level = (wins / battles) * 100;
+
+  $('#nickn').html(nickName);
+  $('#battles-count').html(battles);
+  $('#hitssuper').html(`${hits_percents}% `);
+  $('#wins-count').html(wins_level.toFixed(2) + "%");
+  $('#maxexp').html(max_xp);
+
+  let animate = (color) => {
+    $("#wins-count").css({
+      color: color
+    })
   }
-  setTimeout(stat, 100);
 
-  $(".overlay").animate({
-    top: "-90%"
-  }, { queue:false, duration:800 });
+  if (wins_level > 64) {
+      animate("purple")
+    }  else if (wins_level > 57 && wins_level < 65) {
+      animate("deepskyblue")
+    }  else if (wins_level > 52.4 && wins_level < 58) {
+      animate("green")
+    } else if (wins_level > 48 && wins_level < 52.6) {
+      animate("yellow")
+    } else if (wins_level > 46 && wins_level < 49) {
+      animate("orange")
+    } else if (wins_level > -1 && wins_level < 47) {
+      animate("red")
+    }
 
-  $(".backgr").animate({
-    top: "-90%",
-  }, { queue:false, duration:800 });
-
-  $("#login, .search").animate({
-    top: "1.5%"
-  }, { queue:false, duration:800 });
-    $(".overlay").animate({
+   $(".overlay").animate({
+     top: "-90%"
+    }, { queue:false, duration:800 });
+   $(".backgr").animate({
+     top: "-90%",
+    }, { queue:false, duration:800 });
+   $("#login, .search").animate({
+     top: "1.5%"
+   }, { queue:false, duration:800 });
+   $(".overlay").animate({
       opacity: "0.6"
     }, { queue:false, duration:800 });
-    function filt(){
-      $(".backgr").css({
-        filter: "none"
-      });
-    }
-    setTimeout(filt, 800);
+
+
+}// end render func
 
 
 
-}
-    setTimeout(show, 800);
+
+const go = () => {
+  let nickName = document.getElementById('login').value;
+    getAccountId(nickName)
+      .then((accId) => {
+         fetchData(accId)
+            .then((json) => {
+              render(json, accId, nickName)
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+         })
+       .catch((err) => {
+      console.log(err)
+    })
 }

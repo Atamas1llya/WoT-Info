@@ -18,7 +18,7 @@ input {outline: none;}
   top: 0;
   height: 100vh;
 
-  background: url("/pictures/backgr.jpg");
+  background: url("../pictures/backgr.jpg");
   background-position: center;
   background-size: cover;
     filter: blur(10px);
@@ -39,6 +39,8 @@ input {outline: none;}
   box-shadow: inset 0 0 15vw black;
   z-index: -2;
   box-shadow: 0 0.2vw 0.2vw black;
+
+  overflow: hidden;
 }
 #login{
   position: absolute;
@@ -224,9 +226,8 @@ input {outline: none;}
   border-radius: 0.1vw;
   z-index: -8;
 
-  font-size: 1.6vw;
+  font-size: 1.4vw;
   line-height: 4vw;
-  text-indent: 1vw;
   color: whitesmoke;
 }
 .stats5{
@@ -240,9 +241,8 @@ input {outline: none;}
   box-shadow: 0 0 0.2vw black;
   border-radius: 0.1vw;
   z-index: -8;
-  font-size: 1.6vw;
+  font-size: 1.4vw;
   line-height: 4vw;
-  text-indent: 1vw;
   color: whitesmoke;
 }
 .stats6{
@@ -270,5 +270,13 @@ input {outline: none;}
   z-index: -8;
 }
 .rightalign{
-  float: right;
+  position: absolute;
+  right: 1vw;
+  width: 30%;
+  text-align: right;
+}
+.leftalign{
+  position: absolute;
+  left: 1vw;
+  width: 70%;
 }

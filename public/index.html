@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
     <meta charset="utf-8">
-    <script src="/js/jquery-3.1.1.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" type="text/javascript"></script>
+
     <title>WoT-Tnfo!</title>
-            <script src="/js/script.js" type="text/javascript"></script>
   </head>
   <body>
     <!-- ======MainBox====== -->
@@ -15,6 +16,7 @@
 
     <div class="search" onclick="go()">GO</div>
     <!-- ======MainBox====== -->
+    <!-- ======Infopanel====== -->
     <div class="underlay">
       <div class="stats"></div>
       <div class="stats2">
@@ -29,8 +31,16 @@
           </div>
       </div>
       <div class="stats3"></div>
-      <div class="stats4">Процент попаданий:<span id="hitssuper" class="rightalign"></span></div>
-      <div class="stats5">Максимальный опыт за бой:<span id="maxexp" class="rightalign"></span></div>
+
+      <div class="stats4">
+        <span class="leftalign">Процент попаданий:</span>
+        <span id="hitssuper" class="rightalign"></span>
+      </div>
+      <div class="stats5">
+        <span class="leftalign">Максимальный опыт за бой:</span>
+        <span id="maxexp" class="rightalign"></span>
+      </div>
+
       <div class="stats6"></div>
       <div class="stats7"></div>
 
