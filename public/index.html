@@ -3,12 +3,21 @@
   <head>
     <meta charset="utf-8">
     <script src="js/jquery-3.1.1.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mainstyle.css">
+    <link rel="stylesheet" href="css/angarstyle.css">
+    <link rel="stylesheet" href="css/statsstyle.css">
+    <link rel="stylesheet" href="css/infostyle.css">
     <script src="js/script.js" type="text/javascript"></script>
+    <script src="js/angarscript.js" type="text/javascript"></script>
+    <script src="js/statsscript.js" type="text/javascript"></script>
+    <script src="js/infoscript.js" type="text/javascript"></script>
 
-    <title>WoT-Tnfo!</title>
+    <title>Главная - WoT-Tnfo!</title>
   </head>
   <body>
+    <div class="an-nick"></div>
+    <div class="page"></div>
+    <div class="load-wait"></div>
     <!-- ======MainBox====== -->
     <div class="backgr"></div>
     <div class="overlay"></div>
@@ -19,6 +28,12 @@
     <!-- ======Infopanel====== -->
     <div class="underlay">
 
+      <div class="menu-1" onclick="angaranim()">Ангар</div>
+      <div class="menu-2" onclick="statsanim()">Полная статистика</div>
+      <div class="menu-3" onclick="infoanim()">Интересные факты</div>
+<!-- ========================    ======================== -->
+<!-- ========================MAIN======================== -->
+<!-- ========================    ======================== -->
       <div class="mainstats">
           <div id="nickn"></div>
           <div class="battles">
@@ -30,10 +45,6 @@
               <span id="wins-count"></span>
           </div>
       </div>
-
-      <div class="menu-1">Ангар</div>
-      <div class="menu-2">Полная статистика</div>
-      <div class="menu-3">Интересные факты</div>
 
       <div class="right_stats">
 
@@ -83,6 +94,26 @@
               </div>
       </div>
 
+<!-- ========================MAIN======================== -->
+
+<!-- ========================ANGAR======================== -->
+
+          <div class="tank-list">
+              <div class="tank-1"></div>
+          </div>
+<!-- ========================ANGAR======================== -->
+
+
+<!-- ========================STATS======================== -->
+  <div class="stats-box"></div>
+
+<!-- ========================STATS======================== -->
+
+
+<!-- ========================INFO======================== -->
+  <div class="info-box"></div>
+
+<!-- ========================INFO======================== -->
     </div>
   </body>
 </html>

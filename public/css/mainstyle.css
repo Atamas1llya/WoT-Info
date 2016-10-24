@@ -9,7 +9,43 @@ input {outline: none;}
 ::-moz-placeholder          {color:rgba(255, 255, 255, 0.2);}
 :-moz-placeholder           {color:rgba(255, 255, 255, 0.2);}
 :-ms-input-placeholder      {color:rgba(255, 255, 255, 0.2);}
+.load-wait{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -99999;
+}
+.page{
+  position: absolute;
+  top: 0.4vw;
+  left: 43vw;
+  width: 18vw;
+  height: 4vw;
+  z-index: 600;
+  opacity: 0;
+  color: white;
+  text-align: center;
+  line-height: 4vw;
+  font-size: 2vw;
+}
+.an-nick{
+  position: absolute;
+  top: 0.4vw;
+  left: 3vw;
 
+  width: 20vw;
+  height: 4vw;
+
+  z-index: 600;
+  opacity: 0;
+  color: white;
+  text-align: left;
+  line-height: 4vw;
+  font-size: 2vw;
+}
 
 .backgr{
   position: absolute;
@@ -23,7 +59,7 @@ input {outline: none;}
   background-size: cover;
     filter: blur(10px);
   overflow: hidden;
-  z-index: -5;
+  z-index: 555;
 }
 .overlay{
   position: absolute;
@@ -37,7 +73,7 @@ input {outline: none;}
   background-position: center;
   background-size: cover;
   box-shadow: inset 0 0 15vw black;
-  z-index: -2;
+  z-index: 599;
   box-shadow: 0 0.2vw 0.2vw black;
 
   overflow: hidden;
@@ -59,7 +95,7 @@ input {outline: none;}
   font-size: 1.5vw;
   color: rgba(255, 255, 255, 0.8);
   font-family: monospace;
-  z-index: 5;
+  z-index:888;
 }
 #login:focus{
    box-shadow: inset 0 1px 3px 1px  rgba(0,0,0,.5),
@@ -92,6 +128,7 @@ input {outline: none;}
      rgba(0,0,0,.8) 1px 1px 2px -1px;
   cursor: pointer;
   outline: none;
+  z-index: 899;
 }
 .underlay{
   position: absolute;
@@ -108,7 +145,7 @@ input {outline: none;}
   position: absolute;
   left: 1vw;
   top: 1vw;
-  width: 50vw;
+  right: 49vw;
   height: 10vw;
 
   background: rgba(40, 44, 52, 1);
@@ -343,7 +380,7 @@ input {outline: none;}
   background: url("../pictures/tank-icon.png");
   background-color: rgba(40, 44, 52, 1);
   background-position: right;
-  background-size: 20%;
+  background-size: 18%;
   background-repeat: no-repeat;
   box-shadow: 0 0 0.2vw black;
   border-radius: 0.1vw;
@@ -366,7 +403,7 @@ input {outline: none;}
   background: url("../pictures/stats-icon.png");
   background-color: rgba(40, 44, 52, 1);
   background-position: right;
-  background-size: 20%;
+  background-size: 18%;
   background-repeat: no-repeat;
   box-shadow: 0 0 0.2vw black;
   border-radius: 0.1vw;
@@ -389,7 +426,7 @@ input {outline: none;}
   background: url("../pictures/lamp-icon.png");
   background-color: rgba(40, 44, 52, 1);
   background-position: right;
-  background-size: 20%;
+  background-size: 18%;
   background-repeat: no-repeat;
   box-shadow: 0 0 0.2vw black;
   border-radius: 0.1vw;

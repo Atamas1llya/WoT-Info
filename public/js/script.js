@@ -43,7 +43,7 @@ const render = (json, accId, nickName) => {
   let wins_level = (wins / battles) * 100;
   let avgDmgAnim = (damage_dealt / battles).toFixed(0);
   let avgKills = (frags / battles).toFixed(2)
-  $('#nickn').html(trueNick);
+  $('#nickn, .an-nick').html(trueNick);
   $('#battles-count').html(battles);
   $('#hitssuper').html(hits_percents);
   $('#wins-count').html(wins_level.toFixed(2) + "%");
@@ -56,8 +56,21 @@ const render = (json, accId, nickName) => {
   $('#max-frags').html(max_frags);
   $('#avg-assist').html(avg_damage_assisted);
 
-
-
+  $("#login, .search").css({
+    display: "none"
+  })
+  $(".an-nick, .page").animate({
+    opacity: '1'
+  }, 1000);
+  $(".an-nick").html(trueNick);
+    $(".page").html("Главная");
+    $(".page").css({
+        background: "url(../pictures/home.png)",
+        backgroundSize: "15%",
+        backgroundPosition: "left",
+        backgroundRepeat: "no-repeat"
+    });
+    $("title").html(`${trueNick} - Главная`);
 
   let animateWins = (color) => {
     $("#wins-count").css({
@@ -199,7 +212,7 @@ const render = (json, accId, nickName) => {
     }, { queue:false, duration:800 });
 
 
-}// end render func
+}// End Render Function
 
 const go = () => {
   let nickName = document.getElementById('login').value;
@@ -216,4 +229,15 @@ const go = () => {
        .catch((err) => {
       console.log(err)
     })
+}
+
+const animateTop = (name, value) => {
+  $(name).animate({
+    top: value
+  }, 400);
+};
+const loadWait = () => {
+  $(".load-wait").css({zIndex: "99999"});
+  const loadEnd = () => {$(".load-wait").css({zIndex: "-99999"})}
+  setTimeout(loadEnd, 1000)
 }
