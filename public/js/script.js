@@ -56,15 +56,12 @@ const render = (json, accId, nickName) => {
   $('#max-frags').html(max_frags);
   $('#avg-assist').html(avg_damage_assisted);
 
-  $("#login, .search").css({
-    display: "none"
-  })
-  $(".an-nick, .page").animate({
+  $(".an-nick, .pageSell").animate({
     opacity: '1'
   }, 1000);
   $(".an-nick").html(trueNick);
-    $(".page").html("Главная");
-    $(".page").css({
+    $(".pageSell").html("Главная");
+    $(".pageSell").css({
         background: "url(../pictures/home.png)",
         backgroundSize: "15%",
         backgroundPosition: "left",
@@ -198,6 +195,10 @@ const render = (json, accId, nickName) => {
               }
 
 
+    $("#login, .search").css({
+      display: "none"
+    });
+
    $(".overlay").animate({
      top: "-90%"
     }, { queue:false, duration:800 });
@@ -211,8 +212,18 @@ const render = (json, accId, nickName) => {
       opacity: "0.6"
     }, { queue:false, duration:800 });
 
+    document.onkeyup = function (e) {
+      console.log("Enter kay blocked");
+}
+} // End Render Function
 
-}// End Render Function
+document.onkeyup = function (e) {
+	e = e || window.event;
+	if (e.keyCode === 13) {
+		go();
+	}
+	return false;
+}
 
 const go = () => {
   let nickName = document.getElementById('login').value;
@@ -230,14 +241,25 @@ const go = () => {
       console.log(err)
     })
 }
+// ============== COMMON FUNCTIONS ============
 
-const animateTop = (name, value) => {
-  $(name).animate({
-    top: value
-  }, 400);
-};
-const loadWait = () => {
+const loadWait = () => { // Оверлей при клике на меню
   $(".load-wait").css({zIndex: "99999"});
   const loadEnd = () => {$(".load-wait").css({zIndex: "-99999"})}
   setTimeout(loadEnd, 1000)
 }
+const animateMenu = () => { // Анимация меню
+  $(".menu-1").animate({top: "6vw"}, 400);
+  $(".menu-2").animate({top: "15vw"}, 400);
+  $(".menu-3").animate({top: "24vw"}, 400);
+
+  $('.menu-1, .menu-2, .menu-3').html("");
+  $('.menu-1, .menu-2, .menu-3').animate({
+    width: "10vw",
+    backgroundSize: "100%"
+  }, 500);
+}
+const hidePages = () => {
+  $(".stats-list, .tank-list, .stats-box-1, .info-box, .mainpage-stats, .mainstats").css({display: "none"});
+}
+// ============== COMMON FUNCTIONS ============
