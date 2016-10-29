@@ -20,7 +20,6 @@ const getAccountId = (nickName) => {
    })
 }
 
-
 const fetchData = (accId) => {
   return new Promise((resolve, reject) => {
     fetch(`https://api.worldoftanks.ru/wot/account/info/?application_id=${appId}&account_id=${accId}&language=ru`)
@@ -55,20 +54,6 @@ const render = (json, accId, nickName) => {
   $('#avg-frags').html(avgKills);
   $('#max-frags').html(max_frags);
   $('#avg-assist').html(avg_damage_assisted);
-
-  $(".an-nick, .pageSell").animate({
-    opacity: '1'
-  }, 1000);
-  $(".an-nick").html(trueNick);
-    $(".pageSell").html("Главная");
-    $(".pageSell").css({
-        background: "url(../pictures/home.png)",
-        backgroundSize: "15%",
-        backgroundPosition: "left",
-        backgroundRepeat: "no-repeat"
-    });
-    $("title").html(`${trueNick} - Главная`);
-
   let animateWins = (color) => {
     $("#wins-count").css({
       color: color
@@ -194,16 +179,29 @@ const render = (json, accId, nickName) => {
                 animateAvgKills("red")
               }
 
+    $(".an-nick, .pageSell").animate({
+      opacity: '1'
+    }, 1000);
+    $(".an-nick").html(trueNick);
+      $(".pageSell").html("Главная");
+      $(".pageSell").css({
+          background: "url(../pictures/home.png)",
+          backgroundSize: "15%",
+          backgroundPosition: "left",
+          backgroundRepeat: "no-repeat"
+      });
+      $("title").html(`${trueNick} - Главная`);
+
 
     $("#login, .search").css({
       display: "none"
     });
 
    $(".overlay").animate({
-     top: "-90%"
+     height: "5vw"
     }, { queue:false, duration:800 });
    $(".backgr").animate({
-     top: "-90%",
+     height: "5vw"
     }, { queue:false, duration:800 });
    $("#login, .search").animate({
      top: "1.5%"
