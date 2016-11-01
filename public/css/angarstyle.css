@@ -11,3 +11,43 @@
   display: none;
   z-index: 100;
 }
+.tank-level{
+  position: absolute;
+  top: 1vw;
+  width: 5%;
+  left: 0.2%;
+  height: 3vw;
+
+  text-align: center;
+  font-size: 1.7vw;
+  color: whitesmoke;
+  line-height: 3vw;
+  border-right: 1px solid dimgray;
+}
+.tank-name{
+  position: absolute;
+  width: 50%;
+  left: 7%;
+  height: 5vw;
+
+  text-align: left;
+  font-size: 1.7vw;
+  line-height: 3vw;
+  color: whitesmoke;
+  line-height: 5vw;
+}
+
+.tank-battles{
+  position: absolute;
+  width: 5%;
+  left: 93%;
+  top: 1vw;
+  height: 3vw;
+  text-align: right;
+
+  font-size: 1.6vw;
+  line-height: 3vw;
+  color: whitesmoke;
+
+  border-left: 1px solid dimgray;
+}
