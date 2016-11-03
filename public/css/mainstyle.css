@@ -46,7 +46,24 @@ input {outline: none;}
   line-height: 4vw;
   font-size: 2vw;
 }
+.goHome{
+  position: absolute;
+  top: 0.4vw;
+  left: 94vw;
 
+  width: 5vw;
+  height: 4vw;
+
+  z-index: 600;
+  display: none;
+
+  background: url(../pictures/home.png);
+  background-size: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  cursor: pointer;
+}
 .backgr{
   position: absolute;
   left: 0vw;
@@ -132,7 +149,7 @@ input {outline: none;}
 }
 .underlay{
   position: absolute;
-  top: 10%;
+  top: 5vw;
   left: 0;
   right: 0;
   bottom: 0;
@@ -287,53 +304,7 @@ input {outline: none;}
 
   cursor: pointer;
 }
-.menu-2{
-  position: fixed;
-  left: 1vw;
-  top: 26vw;
-  width: 50vw;
-  height: 8vw;
-
-  background: url("../pictures/stats-icon.png");
-  background-color: rgba(40, 44, 52, 1);
-  background-position: right;
-  background-size: 18%;
-  background-repeat: no-repeat;
-  box-shadow: 0 0 0.2vw black;
-  border-radius: 0.1vw;
-  z-index: -8;
-
-  text-align: center;
-  font-size: 2.5vw;
-  color: whitesmoke;
-  line-height: 8vw;
-
-  cursor: pointer;
-}
-.menu-3{
-  position: fixed;
-  left: 1vw;
-  top: 35vw;
-  width: 50vw;
-  height: 8vw;
-
-  background: url("../pictures/lamp-icon.png");
-  background-color: rgba(40, 44, 52, 1);
-  background-position: right;
-  background-size: 18%;
-  background-repeat: no-repeat;
-  box-shadow: 0 0 0.2vw black;
-  border-radius: 0.1vw;
-  z-index: -8;
-
-  text-align: center;
-  font-size: 2.5vw;
-  color: whitesmoke;
-  line-height: 8vw;
-
-  cursor: pointer;
-}
-.menu-1:hover, .menu-2:hover, .menu-3:hover {
+.menu-1:hover{
   box-shadow: 0 0 1px black;
   border: 1px solid black;
   color: white;

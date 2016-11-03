@@ -1,4 +1,4 @@
-const appId = '8f5364a34f86dfcb5e74149187e31190';
+
 let trueNick;
 
 const getAccountId = (nickName) => {
@@ -54,6 +54,7 @@ const render = (json, accId, nickName) => {
   $('#avg-frags').html(avgKills);
   $('#max-frags').html(max_frags);
   $('#avg-assist').html(avg_damage_assisted);
+
   let animateWins = (color) => {
     $("#wins-count").css({
       color: color
@@ -179,7 +180,7 @@ const render = (json, accId, nickName) => {
                 animateAvgKills("red")
               }
 
-    $(".an-nick, .pageSell").animate({
+    $(".an-nick, .pageSell, .goHome").animate({
       opacity: '1'
     }, 1000);
     $(".an-nick").html(trueNick);
@@ -241,23 +242,20 @@ const go = () => {
 }
 // ============== COMMON FUNCTIONS ============
 
-const loadWait = () => { // Оверлей при клике на меню
+const loadWait = (time) => { // Оверлей при клике на меню
   $(".load-wait").css({zIndex: "99999"});
   const loadEnd = () => {$(".load-wait").css({zIndex: "-99999"})}
-  setTimeout(loadEnd, 1000)
+  setTimeout(loadEnd, time)
 }
 const animateMenu = () => { // Анимация меню
   $(".menu-1").animate({top: "6vw"}, 400);
-  $(".menu-2").animate({top: "15vw"}, 400);
-  $(".menu-3").animate({top: "24vw"}, 400);
-
-  $('.menu-1, .menu-2, .menu-3').html("");
-  $('.menu-1, .menu-2, .menu-3').animate({
+  $('.menu-1').html("");
+  $('.menu-1').animate({
     width: "10vw",
     backgroundSize: "100%"
   }, 500);
 }
 const hidePages = () => {
-  $(".stats-list, .tank-list, .stats-box-1, .info-box, .mainpage-stats, .mainstats").css({display: "none"});
+  $(".tank-list, .mainpage-stats, .mainstats, .sort,  .goHome").css({display: "none"});
 }
 // ============== COMMON FUNCTIONS ============

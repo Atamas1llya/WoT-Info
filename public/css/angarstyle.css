@@ -1,7 +1,74 @@
+.sort{
+  position: absolute;
+  top: 1.2vw;
+  left: 12vw;
+  width: 87vw;
+  height: 3vw;
+  background: rgba(40, 44, 52, 1);
+  box-shadow: 0 0 0.2vw black;
+  display: none;
+  z-index: 100;
+}
+.sort-level{
+  position: absolute;
+  top: 0vw;
+  width: 5.2%;
+  left: 0%;
+  height: 3vw;
+  text-align: center;
+  font-size: 1.7vw;
+  color: whitesmoke;
+  line-height: 3vw;
+  border-right: 1px solid dimgray;
+  cursor: pointer;
 
+  background: url("../pictures/down-arrow.png");
+  background-size: 65%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sort-battles{
+  position: absolute;
+  top: 0vw;
+  width: 7%;
+  left: 93%;
+  height: 3vw;
+  text-align: center;
+  font-size: 1.7vw;
+  color: whitesmoke;
+  line-height: 3vw;
+  border-left: 1px solid dimgray;
+  cursor: pointer;
+
+  background: url("../pictures/down-arrow.png");
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sort-wins{
+  position: absolute;
+  top: 0vw;
+  width: 7%;
+  left: 86%;
+  height: 3vw;
+  text-align: center;
+  font-size: 1.7vw;
+  color: whitesmoke;
+  line-height: 3vw;
+  border-left: 1px solid dimgray;
+  cursor: pointer;
+
+  background: url("../pictures/down-arrow.png");
+  background-size: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sort-level:hover, .sort-battles:hover, .sort-wins:hover{
+  background-color: rgba(50, 54, 62, 1);
+}
 .tank-list{
   position: relative;
-  top: 1.2vw;
+  top: 5.2vw;
   left: 12vw;
   width: 87vw;
   height: 5vw;
@@ -44,6 +111,20 @@
   top: 1vw;
   height: 3vw;
   text-align: right;
+
+  font-size: 1.6vw;
+  line-height: 3vw;
+  color: whitesmoke;
+
+  border-left: 1px solid dimgray;
+}
+.tank-wins{
+  position: absolute;
+  width: 7%;
+  left: 86%;
+  top: 1vw;
+  height: 3vw;
+  text-align: center;
 
   font-size: 1.6vw;
   line-height: 3vw;
